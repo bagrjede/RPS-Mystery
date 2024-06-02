@@ -60,7 +60,7 @@
   --bs-warning-bg-subtle: #fff3cd;
   --bs-danger-bg-subtle: #facdcd;
   --bs-light-bg-subtle: #fcfcfd;
-  --bs-dark-bg-subtle: #ced4da;
+  --bs-dark-bg-subtle: #202020;
   --bs-primary-border-subtle: #9ec5fe;
   --bs-secondary-border-subtle: #9bb0cb;
   --bs-success-border-subtle: #9df69d;
@@ -11888,7 +11888,6 @@ textarea.form-control-lg {
 }
 
 .content-wrapper {
-  height: 720px;
   list-style-type: none;
   padding-inline-start: 0;
   margin-block-start: 0;

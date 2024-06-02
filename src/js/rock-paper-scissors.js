@@ -66,6 +66,7 @@ function gameAnimation() {
   }
 }
 
+// This function is called every time the player clicks one of the three buttons. It generates a random move for the bot player and decides what is the result of the ongoing round. The result is stored in the result variable.
 function calculateResult(player) {
   const bot = getRndInteger(0, 3);
   switch (bot) {
@@ -96,6 +97,7 @@ function calculateResult(player) {
   return 'loss';
 }
 
+//This function visually hints the player what is the result is. The borders around the two game boxes change color as well as the text which shows at the bottom.
 async function showResult(res) {
   const gameBoxes = document.querySelectorAll('.RPS-box');
   const gameBoxImages = document.querySelectorAll('.RPS-box img');
@@ -139,6 +141,7 @@ async function showResult(res) {
   await new Promise((r) => setTimeout(r, 150));
   resText.classList.remove(`text-${resClassName}`);
 }
+
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }

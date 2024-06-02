@@ -1,15 +1,24 @@
+// The puzzle system uses HTML grid.
+// This allows me to change the order of the grid elements without changing the html structure.
+// I am only using css classes to determine each puzzle piece's position.
+
+
 document.addEventListener('DOMContentLoaded', (event) => {
-  createAddOrder();
+  randomizePositions();
   setDragListeners();
 });
 
-const puzzleAddOrder = [];
-let currentAddPuzzlePieceIndex = 0;
-function createAddOrder() {
+// This function is called on load. It shuffles the puzzle board.
+function randomizePositions() {
+  const order = []
   for (let i = 0; i < 9; i += 1) {
-    puzzleAddOrder.push(`puzzle-${i}`);
+    order.push(`puzzle-pos-${i}`);
   }
-  shuffleArray(puzzleAddOrder);
+  shuffleArray(order);
+  const cells = document.querySelector('.puzzle-container').children;
+  for (let i = 0; i < 9; i += 1) {
+    cells[i].classList.add(order[i])
+  }
 }
 function shuffleArray(array) {
   let currentIndex = array.length;
@@ -25,6 +34,7 @@ function shuffleArray(array) {
       array[randomIndex], array[currentIndex]];
   }
 }
+// Setting listeners for every puzzle piece.
 function setDragListeners() {
   const puzzlePieces = document.querySelector('.puzzle-container').children;
   for (const e of puzzlePieces) {
@@ -33,43 +43,71 @@ function setDragListeners() {
     e.addEventListener('dragover', handleDragOver);
   }
 }
-function getFreeGridCell() {
+// removing listeners for every puzzle piece.
+function removeDragListeners() {
+  const puzzlePieces = document.querySelector('.puzzle-container').children;
+  for (const e of puzzlePieces) {
+    e.removeEventListener('dragstart', handleDragStart);
+    e.removeEventListener('drop', handleDrop);
+    e.removeEventListener('dragover', handleDragOver);
+  }
+}
+
+// This function is called from the other script every time the player wins a game of rock-paper-scissors. The puzzle piece is already in the DOM. The function only makes it visible by adding the bg image.
+function addPuzzlePiece() {
   const cells = document.querySelector('.puzzle-container').children;
   for (const cell of cells) {
-    if (cell.id === '') {
-      return cell;
+    if (!cell.classList.contains('puzzle-piece')) {
+      cell.classList.add('puzzle-piece');
+      return;
     }
   }
-  return undefined;
-}
-function addPuzzlePiece() {
-  if (currentAddPuzzlePieceIndex === 9) {
-    return;
-  }
-  currentAddPuzzlePieceIndex += 1;
-  const div = getFreeGridCell();
-  div.id = puzzleAddOrder[currentAddPuzzlePieceIndex];
-  div.classList.add('puzzle-piece');
 }
 
 let dragSrcEl;
+let dragSrcElPos;
 function handleDragStart(e) {
-  console.log(this);
+  // storing the element that is being dragged
   dragSrcEl = this;
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.innerHTML);
+  // finding the puzzle-pos class
+  for (const c of this.classList) {
+    if (c.includes('puzzle-pos')) {
+      dragSrcElPos = c;
+    }
+  }
 }
 function handleDrop(e) {
-  console.log(this);
-  e.stopPropagation();
+  e.stopPropagation(); // stops the browser from redirecting
   if (dragSrcEl !== this) {
-    console.log(dragSrcEl.innerHTML);
-    dragSrcEl.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
+    // finding the puzzle-pos class
+    for (const c of this.classList) {
+      if (c.includes('puzzle-pos')) {
+        // switching positions
+
+        dragSrcEl.classList.remove(dragSrcElPos);
+        dragSrcEl.classList.add(c);
+
+        this.classList.remove(c);
+        this.classList.add(dragSrcElPos);
+      }
+    }
   }
+
+  checkPuzzleOrder();
   return false;
 }
 function handleDragOver(e) {
   e.preventDefault();
   return false;
+}
+
+// This function check if the puzzle is completed by checking the order of puzzle-pos classes. If it is, dragging becomes disabled.
+function checkPuzzleOrder(){
+  const cells = document.querySelector('.puzzle-container').children;
+  for (let i = 0; i < 9; i += 1) {
+    if (!cells[i].classList.contains(`puzzle-pos-${i}`)) {
+      return;
+    }
+  }
+  removeDragListeners();
 }

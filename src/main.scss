@@ -6,6 +6,7 @@
 $secondary: #05397c;
 $success: #09e809;
 $danger: #e50404;
+$dark-bg-subtle: #202020;
 $border-widths: (
         1: 1px,
         2: 2px,
@@ -57,7 +58,6 @@ $border-widths: (
 }
 //==========================
 .content-wrapper{
-  height: 720px;
   list-style-type: none;
   padding-inline-start: 0;
   margin-block-start: 0;
