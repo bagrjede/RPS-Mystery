@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./main.css">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>RPS Mystery</title>
+</head>
+<body class="bg-dark text-light">
+<header class="bg-primary">
+    <div class="container-fluid px-4">
+        <ul class="flex-horizontal nav-cols-wrapper">
+            <li class="w40 flex-horizontal">
+                <a href="#" class="btn btn-outline-light">New Game</a>
+            </li>
+            <li class="w20 img-wrapper-center">
+                <img src="images/logo.png" alt="logo">
+            </li>
+            <li class="w40 flex-horizontal flex-just-end">
+                <a href="#" class="btn btn-outline-light">About</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<section class="container-fluid mt-5">
+    <ul class="content-wrapper">
+        <li class="w60 border-end border-5">
+            <div class="mx-auto border border-3 order-dark-subtle puzzle-container">
+                <div class="puzzle-piece" draggable="true"></div>
+                <div class="" draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+                <div draggable="true"></div>
+            </div>
+
+            <script src="./js/puzzle.js"></script>
+        </li>
+        <li class="w40">
+            <div class="img-wrapper-center">
+                <img src="./images/robot.png" alt="ROBOT" width="62px" height="62px">
+            </div>
+            <div class="RPS-box mx-auto mt-2 img-wrapper-center rounded-4 border border-5 bg-light-subtle border-black">
+                <img src="./images/rock.png" alt="ROCK">
+            </div>
+            <div class="my-3 text-center h1">
+                VS
+            </div>
+            <div class="RPS-box mx-auto img-wrapper-center rounded-4 border border-5 bg-light-subtle border-black">
+                <img src="./images/rock.png" alt="ROCK">
+            </div>
+            <div class="w-75 mx-auto my-4 border-top border-1 border-dark-subtle"></div>
+            <ul class="flex-horizontal flex-just-cent w-75 mx-auto column-gap-3">
+                <li>
+                    <button id="rock-btn" class="RPS-btn-img bg-rock btn btn-secondary btn-outline-light p-1"></button>
+                </li>
+                <li>
+                    <button id="paper-btn" class="RPS-btn-img bg-paper btn btn-secondary btn-outline-light p-1"></button>
+                </li>
+                <li>
+                    <button id="scissors-btn" class="RPS-btn-img bg-scissors btn btn-secondary btn-outline-light p-1"></button>
+                </li>
+            </ul>
+            <div id="resText" class="mt-4 mb-0 text-center h1 opacity-0">TEXT</div>
+
+            <script src="./js/rock-paper-scissors.js"></script>
+        </li>
+    </ul>
+</section>
+</body>
+</html>

@@ -1,0 +1,183 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+$secondary: #05397c;
+$success: #09e809;
+$danger: #e50404;
+$border-widths: (
+        1: 1px,
+        2: 2px,
+        3: 3px,
+        4: 4px,
+        5: 6px
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+
+.nav-cols-wrapper {
+  height: 80px;
+}
+
+.w20{
+  width: 20%;
+}
+.w40{
+  width: 40%;
+}
+.w60{
+  width: 60%;
+}
+.flex-horizontal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 0;
+}
+.flex-just-end{
+  justify-content: end;
+}
+.flex-just-cent{
+  justify-content: center;
+}
+
+.img-wrapper-center{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+//==========================
+.content-wrapper{
+  height: 720px;
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.puzzle-container {
+  width: 546px;
+  margin-top: 6rem;
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  grid-template-rows: repeat(3, 180px);
+  gap: 0;
+}
+.puzzle-piece {
+  cursor: move;
+  background-image: url("./images/puzzle/puzzle-0.png");
+}
+#puzzle-0 {
+  background-position: 0 0;
+}
+#puzzle-1 {
+  background-position: -180px 0;
+}
+#puzzle-2 {
+  background-position: -360px 0;
+}
+#puzzle-3 {
+  background-position: 0 -180px;
+}
+#puzzle-4 {
+  background-position: -180px -180px;
+}
+#puzzle-5 {
+  background-position: -360px -180px;
+}
+#puzzle-6 {
+  background-position: 0 -360px;
+}
+#puzzle-7 {
+  background-position: -180px -360px;
+}
+#puzzle-8 {
+  background-position: -360px -360px;
+}
+
+.puzzle-pos-0 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+.puzzle-pos-1 {
+  grid-column-start: 2;
+  grid-row-start: 1;
+}
+.puzzle-pos-2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+.puzzle-pos-3 {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.puzzle-pos-4 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.puzzle-pos-5 {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+.puzzle-pos-6 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+.puzzle-pos-7 {
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+.puzzle-pos-8 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.RPS-box {
+  width: 200px;
+  height: 200px;
+  transition: border-color 0.15s linear;
+}
+.RPS-box img {
+  width: 200px;
+  height: 200px;
+}
+.RPS-btn-img {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  display: inline-block;
+  transition: background-image 0.15s ease-in-out;
+}
+#resText {
+  transition: opacity 0.15s linear;
+}
+.bg-rock{
+  background-image: url("./images/rock-w.png");
+}
+.bg-rock:hover {
+  background-image: url("./images/rock.png");
+}
+.bg-paper{
+  background-image: url("./images/paper-w.png");
+}
+.bg-paper:hover {
+  background-image: url("./images/paper.png");
+}
+.bg-scissors{
+  background-image: url("./images/scissors-w.png");
+}
+.bg-scissors:hover {
+  background-image: url("./images/scissors.png");
+}
