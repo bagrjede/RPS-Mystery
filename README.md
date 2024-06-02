@@ -7,7 +7,7 @@
 5. [Použití](#použití)
 
 ## Úvod
-Tento projekt je jednoduchá webová aplikace určená k výuce základů frontendového vývoje. Cílem je, aby středoškolští studenti získali praktické zkušenosti s technologiemi jako HTML, CSS a JavaScript. Projekt je navržen tak, aby byl snadno pochopitelný a použitelný jako základ pro další vývoj.
+Tento web byl vytvořen jako školní projekt. Jeho jediným účelem je zařídit mi jedničku do třídnice a poskytnout vám krátký, ale zábavný zážitek.
 
 ## Požadavky
 - [Node.js](https://nodejs.org/) verze 12 nebo novější
@@ -17,36 +17,30 @@ Tento projekt je jednoduchá webová aplikace určená k výuce základů fronte
 ## Instalace
 **Klonování repozitáře**
     ```
-    
+    git clone https://github.com/bagrjede/RPS-Mystery.git
     ```
-
 
 ## Struktura Projektu
 ```
 RPS-Mystery/
-├── public/
-│   ├── index.html
-│   └── styles/
-│       └── main.css
+
 ├── src/
-│   ├── index.js
-│   ├── components/
-│   └── assets/
-├── package.json
+│   ├── images/
+│   ├── js/
+|   |   ├── .eslintrc
+|   |   ├── puzzle.js
+|   │   └── rock-paper-scissors.js
+│   ├── index.html
+│   ├── about.html
+│   ├── main.css
+│   ├── main.css.map
+│   └── main.scss
+├── .gitignore
 └── README.md
 ```
 
-- **public/**: Složka obsahující statické soubory jako HTML a CSS.
-- **src/**: Složka obsahující JavaScriptový kód a další zdroje.
-- **package.json**: Soubor obsahující metadata projektu a seznam závislostí.
-
 ## Použití
-1. **Spuštění vývojového serveru**
-    ```bash
-    npm start
-    ```
-
-2. **Otevření projektu v prohlížeči**
-    Otevřete webový prohlížeč a přejděte na adresu `http://localhost:3000`.
+1. **Otevření projektu v prohlížeči**
+    Otevřete soubor index.html
 
 
